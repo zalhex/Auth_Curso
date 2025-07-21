@@ -1,0 +1,32 @@
+### Metodo POST crear usuario
+post http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "usuario1",
+    "email": "usuario1@example.com",
+    "password": "123456"
+}
+
+### Metodo POST validacion de usuario y generar JWT
+post http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "usuario1@example.com",
+    "password": "123456"
+}
+
+### Metodo GET Obtener usuario con JWT
+get http://localhost:5000/api/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODdhNzQ3YTI2YTk3NTc4ZDUyYjlkZmIiLCJlbWFpbCI6InVzdWFyaW8xQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMTIzOTczLCJleHAiOjE3NTMxMjc1NzN9.SxO66HEcYuK_bQ96cNluSp7ed7AlMgehrV3pLO3FbaI
+
+### Post para cambiar la contraseña
+post http://localhost:5000/api/users/me/password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODdhNzQ3YTI2YTk3NTc4ZDUyYjlkZmIiLCJlbWFpbCI6InVzdWFyaW8xQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMTIzOTczLCJleHAiOjE3NTMxMjc1NzN9.SxO66HEcYuK_bQ96cNluSp7ed7AlMgehrV3pLO3FbaI
+
+{
+    "lastPassword": "123456",
+    "newPassword": "654321"
+}
