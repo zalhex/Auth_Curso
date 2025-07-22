@@ -1,0 +1,45 @@
+### Metodo POST crear usuario
+post http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "usuario2",
+    "email": "usuario2@example.com",
+    "password": "123456"
+}
+
+### Metodo POST validacion de usuario y generar JWT
+post http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "usuario1@example.com",
+    "password": "654321"
+}
+
+### Metodo GET Obtener usuario con JWT
+get http://localhost:5000/api/users/me
+Authorization: Bearer 
+
+### Post para cambiar la contraseña
+post http://localhost:5000/api/users/me/password
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    "lastPassword": "123456",
+    "newPassword": "654321"
+}
+
+### Metodo GET Obtener usuario con JWT
+get http://localhost:5000/api/admin/users/
+Authorization: Bearer 
+
+### Patch para actualizar el rol
+PATCH http://localhost:5000/api/admin/user/role/687f0cbb2d85b960d0154109
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODdhNzQ3YTI2YTk3NTc4ZDUyYjlkZmIiLCJlbWFpbCI6InVzdWFyaW8xQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMTU2ODIxLCJleHAiOjE3NTMxNjA0MjF9.4NGwPoOsOOQ_T6i6I1uD_0UFkBFixf4fiptq5zKr9zE
+Content-Type: application/json
+
+{
+    "rol": "user"
+}
